@@ -19,7 +19,7 @@ gfonts-helper <url>
 `<url>` 是 Google Fonts API 的网址，e.g.
 
 ```bash
-gfonts-helper https://fonts.googleapis.com/css2?family=Roboto&display=swap
+gfonts-helper "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 ```
 
 还可以换成缩写
