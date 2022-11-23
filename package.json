@@ -1,6 +1,6 @@
 {
     "name": "gfonts-helper",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A tool to download and compress Google Fonts.",
     "main": "index.js",
     "scripts": {
@@ -15,5 +15,9 @@
     "dependencies": {
         "clean-css": "^5.3.1",
         "download": "^8.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/argvchs/gfonts-helper.git"
     }
 }
