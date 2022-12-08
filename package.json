@@ -1,23 +1,31 @@
 {
-    "name": "gfonts-helper",
-    "version": "1.0.2",
-    "description": "A tool to download and compress Google Fonts.",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "bin": {
-        "gfonts-helper": "./index.js",
-        "gfhelper": "./index.js"
-    },
-    "author": "Argvchs",
-    "license": "MIT",
-    "dependencies": {
-        "clean-css": "^5.3.1",
-        "download": "^8.0.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/argvchs/gfonts-helper.git"
-    }
+  "name": "gfonts-helper",
+  "version": "1.0.3",
+  "description": "A tool to download and compress Google Fonts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/argvchs/gfonts-helper.git"
+  },
+  "keywords": [
+    "fonts",
+    "google-fonts"
+  ],
+  "bin": {
+    "gfonts-helper": "./index.js",
+    "gfhelper": "./index.js"
+  },
+  "author": "Argvchs",
+  "license": "MIT",
+  "dependencies": {
+    "clean-css": "^5.3.1",
+    "download": "^8.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/argvchs/gfonts-helper/issues"
+  },
+  "homepage": "https://github.com/argvchs/gfonts-helper#readme"
 }
