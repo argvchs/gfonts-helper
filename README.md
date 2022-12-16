@@ -4,8 +4,6 @@
 
 ## 1. 安装
 
-输入命令
-
 ```bash
 npm i -g gfonts-helper
 ```
@@ -28,8 +26,6 @@ gfonts-helper "https://fonts.googleapis.com/css2?family=Roboto&display=swap"
 gfhelper <url>
 ```
 
-运行完生成 `download.css` `fonts.min.css` 两个文件和一个文件夹 `fonts`
+运行完生成 `download.css` `fonts.min.css` 两个文件和 `fonts` 一个文件夹
 
-要在网站中使用，导入 `fonts.min.css`即可
-
-`download.css` 是下载文件，可以删除
+导入 `fonts.min.css` 即可，`download.css` 是下载文件，可以删除
