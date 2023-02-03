@@ -6,7 +6,7 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
 const FILE = /(https?|ftp|file):\/\/[-\w+&@#/%=~|?!:,.;]+[-\w+&@#/%=~|]/g;
 const DOMAIN = /(https?|ftp|file):\/\/[-\w+&@#%=~|?!:,.;]+/g;
 let url = process.argv[2].replace(/http:/, "https:");
-let group = Number(process.argv[3]) || 20;
+let group = parseInt(process.argv[3]) || 20;
 const options = {
     headers: {
         "User-Agent":
