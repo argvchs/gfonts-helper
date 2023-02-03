@@ -32,6 +32,4 @@ gfonts-helper "https://fonts.geekzu.org/css2?family=Roboto&display=swap"
 gfhelper <url> <group>
 ```
 
-运行完生成 `download.css` `fonts.min.css` 两个文件和 `fonts` 一个文件夹
-
-导入 `fonts.min.css` 即可，`download.css` 是下载文件，可以删除
+运行完生成 `fonts.min.css` 一个文件，和 `fonts` 一个文件夹
