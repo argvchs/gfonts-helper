@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
+const path = require("path");
 const CleanCSS = require("clean-css");
 const https = require("https");
 
@@ -16,20 +17,21 @@ const OPTIONS = {
 let url = process.argv[2].replace(/http:/, "https:");
 let group = +process.argv[3] || 20;
 
-function getdirectory(url) {
-    return url.split("/").slice(0, -1).join("/");
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
-function download(url, path) {
+
+function download(url, file) {
     return new Promise((resolve, reject) => {
         https.get(url, OPTIONS, res => {
-            let dir = getdirectory(path);
+            let dir = path.dirname(file);
             if (dir)
                 try {
                     fs.accessSync(dir);
                 } catch {
                     fs.mkdirSync(dir, { recursive: true });
                 }
-            let ws = fs.createWriteStream(path);
+            let ws = fs.createWriteStream(file);
             res.pipe(ws);
             ws.on("finish", () => {
                 ws.close();
@@ -42,26 +44,20 @@ function download(url, path) {
         });
     });
 }
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 async function main() {
     await download(url, "download.css");
-    fs.readFile("download.css", "utf-8", async (err, data) => {
+    fs.readFile("download.css", "utf-8", async (err, css) => {
         if (err) throw err;
-        let fonts = data.match(FILE);
-        let count = 0;
-        for (let i = 0; i < fonts.length; i += group) {
-            let slice = fonts.slice(i, i + group);
-            await Promise.all(slice.map(url => download(url, url.replace(DOMAIN, "fonts"), fonts)));
-            count += group;
-            console.log(count, fonts.length);
+        let files = css.match(FILE);
+        for (let i = 0; i < files.length; i += group) {
+            console.log(i, "/", files.length);
+            let slice = files.slice(i, i + group);
+            await Promise.all(slice.map(url => download(url, url.replace(DOMAIN, "fonts"), files)));
             await sleep(100);
         }
-        let style = data.replace(DOMAIN, "fonts");
-        let minified = new CleanCSS().minify(style).styles;
-        fs.writeFile("fonts.min.css", minified, err => {
+        let min = new CleanCSS().minify(css.replace(DOMAIN, "fonts")).styles;
+        fs.writeFile("fonts.min.css", min, err => {
             if (err) throw err;
         });
     });
