@@ -20,7 +20,7 @@ function getdirectory(url) {
     return url.split("/").slice(0, -1).join("/");
 }
 function download(url, path) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
         https.get(url, OPTIONS, res => {
             let dir = getdirectory(path);
             if (dir)
@@ -37,7 +37,7 @@ function download(url, path) {
             });
             ws.on("error", err => {
                 ws.close();
-                throw err;
+                reject(err);
             });
         });
     });
