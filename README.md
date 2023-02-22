@@ -5,7 +5,7 @@
 ## 1. 安装
 
 ```bash
-npm i -g gfonts-helper
+pnpm add gfonts-helper -g
 ```
 
 ## 2. 使用
