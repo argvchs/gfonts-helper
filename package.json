@@ -15,8 +15,7 @@
     "google-fonts"
   ],
   "bin": {
-    "gfonts-helper": "./index.js",
-    "gfhelper": "./index.js"
+    "gfonts-helper": "./index.js"
   },
   "author": "Argvchs",
   "license": "MIT",
