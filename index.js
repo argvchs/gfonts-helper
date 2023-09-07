@@ -17,7 +17,7 @@ function sleep(time) {
 }
 function download(source, dest) {
     return new Promise((resolve, reject) => {
-        https.get(source, options, res => {
+        https.get(source, options, ret => {
             let dir = path.dirname(dest);
             try {
                 fs.accessSync(dir);
@@ -25,7 +25,7 @@ function download(source, dest) {
                 fs.mkdirSync(dir, { recursive: true });
             }
             let ws = fs.createWriteStream(dest);
-            res.pipe(ws);
+            ret.pipe(ws);
             ws.on("finish", () => {
                 ws.close();
                 resolve();
