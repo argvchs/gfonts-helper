@@ -22,7 +22,7 @@ await download(url, "cache.css");
 let style = fs.readFileSync("cache.css").toString();
 let urls = style.match(reg1);
 for (let i = 0; i < urls.length; i += split) {
-    console.log(i, "/", urls.length, "(" + (i / urls.length * 100).toFixed(2) + "%)");
+    console.log(i, "/", urls.length, "(" + ((i / urls.length) * 100).toFixed(2) + "%)");
     let slice = urls.slice(i, i + split);
     await Promise.all(slice.map((url) => download(url, url.replace(reg2, "fonts"))));
     await sleep(100);
