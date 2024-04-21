@@ -21,7 +21,7 @@
   "author": "Argvchs",
   "license": "MIT",
   "dependencies": {
-    "clean-css": "^5.3.2"
+    "clean-css": "^5.3.3"
   },
   "bugs": {
     "url": "https://github.com/argvchs/gfonts-helper/issues"
