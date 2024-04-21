@@ -1,6 +1,6 @@
 {
   "name": "gfonts-helper",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A tool to download and compress Google Fonts.",
   "main": "index.js",
   "type": "module",
